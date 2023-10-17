@@ -1,0 +1,92 @@
+<LoginManager>:
+    LoginScreen:
+        name: "Log"
+    LoggedInScreen:
+        name: "Logged"
+    RegisterScreen:
+        name: "reg"
+
+<LoginScreen>:
+    BoxLayout:
+        orientation: "vertical"
+        spacing: "20dp"
+        BoxLayout:
+            Label:
+                id: bobby
+                text: "Omg can I have your information plz (>//<)"
+        BoxLayout:
+            orientation: "vertical"
+            position_hint: {'center_x': 1}
+            BoxLayout:
+                size_hint: .5,.5
+                spacing: "20dp"
+                Label:
+                    text: "username:"
+                TextInput:
+                    id: username
+            BoxLayout:
+                size_hint: .5,.5
+                spacing: "20dp"
+                Label:
+                    text: "password:"
+                TextInput:
+                    id: password
+        BoxLayout:
+            Button:
+                text: "Register new account :)"
+                background_color: 0,0,0
+                on_release: root.move_screen()
+        BoxLayout:
+            Button:
+                text: "enter"
+                on_release: root.check_login(username.text,password.text)
+
+<LoggedInScreen>:
+    orientation: "vertical"
+    BoxLayout:
+        orientation: "vertical"
+        Label:
+            text: " hello "
+        Button:
+            text: "Log out"
+            on_release: root.log_out()
+
+<RegisterScreen>:
+    BoxLayout:
+        orientation: "vertical"
+        spacing: "20dp"
+        BoxLayout:
+            Label:
+                id: bob
+                text: "Make a new account! ('o')"
+        BoxLayout:
+            orientation: "vertical"
+            position_hint: {'center_x': 1}
+            BoxLayout:
+                size_hint: .5,.5
+                spacing: "20dp"
+                Label:
+                    text: "new username:"
+                TextInput:
+                    id: new_name
+            BoxLayout:
+                size_hint: .5,.5
+                spacing: "20dp"
+                Label:
+                    text: "new_password:"
+                TextInput:
+                    id: new_word
+            BoxLayout:
+                size_hint: .5,.5
+                spacing: "20dp"
+                Label:
+                    text: "reenter new password:"
+                TextInput:
+                    id: new_word2
+        BoxLayout:
+            Label:
+                text: "Password most contain:\n* capital letter and lowercase letter\n* number and special character"
+        BoxLayout:
+            Button:
+                text: "enter"
+                on_release: root.check_registration(new_name.text,new_word.text,new_word2.text)
